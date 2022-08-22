@@ -1,0 +1,42 @@
+This directory contains iDASH22 Track 2 challenge dataset.
+
+Genotype Files:
+---------------
+There are two files related to the genotypes:
+1) genotypes.txt.gz : This file contains the genotypes for the 20,390 variants for the 3,000 subjects. Each row corresponds to a variant. First 4 rows contains the chromosome, start, end, and variant identifier. Following the 4 columns, the genotypes for the 3,000 subjects are included. Each genotype takes a value of 0, 1, 2.
+
+2) genotype_sample_ids.list: This file contains 3,000 rows, which are the subject identifiers, i.e., the columns of genotypes.txt.gz starting with column 5.
+
+Phenotype Files:
+----------------
+2) There are 5 phenotype files that has 2 columns (subject identifier, phenotype value) for the 3,000 individuals in the genotype dataset:
+phenotypes_1.txt  
+phenotypes_2.txt  
+phenotypes_3.txt  
+phenotypes_4.txt  
+phenotypes_5.txt
+The subject identifiers in each phenotype file matches to one of the subjects in the genotype dataset (columns in genotypes.txt.gz).
+
+Model Building and Evaluation Data:
+-----------------------------------
+Participants are expected to build prediction models that take encrypted genotype matrix as input (same format as genotypes.txt.gz), and perform encrypted model evaluation to predict the 5 phenotypes for each subject in the genotype data. The evaluation dataset contains the 20,390 variants for the 198 subject in the same format as the challenge genotype data.
+
+Each submission must contain following:
+
+1) Method for encryption of the genotype data
+2) Encrypted prediction models (prebuilt by the participants using the Challenge Dataset)
+3) Method for evaluating the encrypted models using the encrypted genotype data.
+4) Method for decryption of the final results into a 198x5 matrix that correspond to estimated phenotypes for 198 subjects.
+
+Time Requirements:
+------------------
+Participants are expected to perform prediction of the 5 phenotypes using encrypted model evaluation for 198 genomes in the evaluation dataset under 30 minutes. 
+
+Accuracy:
+---------
+The phenotype predictions will be evaluated by comparison with the known phenotypes of the evaluation dataset. Each submission is expected to provide a prediction for 5 phenotype for each of the 200 genomes in the evaluation dataset as a 200 by 5 matrix. The continuous phenotypes will be evaluated in terms of 1-NRMSE (Normalized Root mean squared error) and binary phenotypes will be evaluated with respect to Area Under ROC (AUROC). For the ROC curves, the teams are expected to provide a score for each phenotype and each phenotype value (i.e., 0 and 1). 
+
+Each submission will be assigned a total overall accuracy by summing the accuracies (AUC for binary and 1-NRMSE for continuous phenotypes) calculated for the 5 phenotypes. The submissions will be ranked with respect to decreasing overall accuracy.
+
+
+
