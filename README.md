@@ -1,7 +1,11 @@
 # idash-2022-he
 
-IDASH 2022 Solution 1 Report L-Infinity Labs
+IDASH 2022 Solution 1 Report
+
+L-Infinity Labs
+
 Daniel Rubin, CTO
+
 The challenge we have undertaken is to develop models that can infer each of 5 patient phenotype values (3 continuous, 2 binary) from a patient genotype variant feature vector of size 23,090, each entry either 0, 1, or 2 corresponding to that many copies of an uncommon variant at the corresponding position. These trained models must be evaluated on a test set of 198 samples in a secure, privacy-preserving way, meaning the genotype data must be encrypted in a homomorphic fashion, as will be the model data, both of which are sent to an independent server for evaluation. The owner of the data can then decrypt the results of the model evaluations.
 
 Detailed nature of input and output: Our solution requires an input of test genome samples from the user. This file is assumed to be ‘test_genotypes.txt.gz’ in the same form as the original compressed challenge training data, containing 198 samples instead of 3000, and placed within the folder inside the package called ‘input’. That is, when opened the file should be an array of 23,090 rows and 198+4 columns, the first 4 of which will be ignored. This input folder comes with a subfolder called ‘models’ which contains the model data.
